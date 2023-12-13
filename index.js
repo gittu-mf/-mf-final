@@ -24,9 +24,23 @@ const apiKey = "c58ff749cb5ec833c2226c4abfc95c2a";
                     weatherIcon.src = iconUrl;
                 })
                 
+                
+                
                 .catch(error => {
                     console.error("Error fetching weather data:", error);
                 });
+                
+            const countryInfoContainer = document.getElementById("country-info");
+            countryInfoContainer.innerHTML = `
+                <h2>Country Information</h2>
+                <p>Capital: <strong>Capital City</strong></p>
+                <p>Population: <strong>XXXXX</strong></p>
+                <p>Official Language: <strong>Language</strong></p>
+                <p>Currency: <strong>Currency</strong></p>
+            `;
+                
+                
+                
                 
                 
         }
