@@ -4,6 +4,10 @@ body {
     text-align: center;
     margin: 0;
     padding: 0;
+    background-image: url(img/bk.jpg); 
+    background-size: cover;
+    background-position: center;
+    color: #2da031;
 }
 
 #container {
@@ -14,41 +18,43 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-#calendar {
-    max-width: 600px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+#clock {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
 
-#month-year {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
+        #calendar {
+            max-width: 100%;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
+        #month-year {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-th, td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
 
-th {
-    background-color: #f2f2f2;
-}
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
 
-.today {
-    background-color: #ffcccb;
-}
+        th {
+            background-color: #f2f2f2;
+        }
 
+        .today {
+            background-color: #ffcccb;
+        }
 #search-box {
     padding: 10px;
     width: 80%;

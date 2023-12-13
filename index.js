@@ -38,11 +38,70 @@ const apiKey = "c58ff749cb5ec833c2226c4abfc95c2a";
                 <p>Official Language: <strong>Language</strong></p>
                 <p>Currency: <strong>Currency</strong></p>
             `;
-                
-                
-                
-                
-                
+                   
         }
+        function updateClock() {
+            const clockElement = document.getElementById("clock");
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        function updateCalendar() {
+            const calendarElement = document.getElementById("calendar");
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const firstDayIndex = new Date(year, month, 1).getDay();
+
+            const days = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+
+            const table = document.createElement("table");
+            const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+            
+            const thead = document.createElement("thead");
+            const headerRow = document.createElement("tr");
+            weekdays.forEach(weekday => {
+                const th = document.createElement("th");
+                th.textContent = weekday;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+          
+            const tbody = document.createElement("tbody");
+            let currentRow = document.createElement("tr");
+            for (let i = 0; i < firstDayIndex; i++) {
+                const td = document.createElement("td");
+                currentRow.appendChild(td);
+            }
+            days.forEach(day => {
+                const td = document.createElement("td");
+                td.textContent = day;
+                if (day === now.getDate()) {
+                    td.classList.add("today");
+                }
+                currentRow.appendChild(td);
+
+                if (currentRow.children.length === 7) {
+                    tbody.appendChild(currentRow);
+                    currentRow = document.createElement("tr");
+                }
+            });
+            table.appendChild(tbody);
+
+            calendarElement.innerHTML = "";
+            calendarElement.appendChild(table);
+        }
+
+        
+        updateClock();
+        updateCalendar();
+        setInterval(updateClock, 1000);
+        setInterval(updateCalendar, 60000);
         
         
